@@ -1,0 +1,54 @@
+You are provided with a Piping and Instrumentation Diagram (P&ID) of a process plant. Your task is to analyze the P&ID from an instrumentation engineering perspective and extract relevant data. Follow the instructions below carefully:
+
+1. P&ID Elements
+The diagram includes pipes, instruments, and equipment.
+Pipes are represented as lines and are identified by line numbers.
+2. Line Number Format
+Each line number follows this format:
+0743-0002-UW-1"-AF1A0F-FA-V, where:
+
+0743: Plant number (common across all lines)
+0002: Line number (mechanical properties like design pressure and temperature are consistent across this line)
+UW: Fluid code
+1": Pipe size (may appear as 1 1/2 or 1" without inch symbol)
+AF1A0F-FA: Pipe class
+V: Insulation type
+3. Instrumentation Engineering Focus
+Key parameters: Fluid code, Pipe size, Pipe class
+Changes in fluid code, pipe class, or insulation type are marked with a class break (CL) or line break symbol
+Pipe size changes are shown using expander, reducer, branch, or tee
+4. Field Instruments
+Represented by circle symbols
+Tag numbers are inside the circle:
+First row: Instrument type
+Second row: Loop number
+Symbols and types follow ISA standards
+Valves (excluding safety valves) with instrument tags are connected to actuators (pneumatic, hydraulic, or electric)
+Valve types are symbolized and described (e.g., "pneumatic operated ball valve")
+Transmitters (pressure, flow, level) may have special symbols (e.g., remote seal, diaphragm)
+5. Annotations and Codes
+Look for nearby notes or see detail (SEE DETAIL "B") or size (exmaple 2") or codes such as: FC, FO, FL, FLC, DFC, FDO, TSO, IV, V, VI, etc.
+Collect these as Notes
+6. Control System Connections
+Electrical instruments are connected to control systems via dashed lines
+If interlock has S code or ESD text nearby, it is connected to ESD
+Closed-loop systems (e.g., PT, PIC, PV) are connected to DCS
+Control systems include: DCS, ESD, CCC, FNG, NA
+7.  Service Description 
+To create the instrument loop service description (, which typically reflects the purpose or function of the instrument in the context of the process (e.g., "Reactor Pressure Control", "Pump Discharge Flow Monitoring")) please analyze the following elements from the P&ID for that instrument 
+•	Incoming and outgoing pipe connections
+•	Fluid code or fluid name
+•	Equipment number
+•	Equipment description
+These will help define the Service Description for each instrument loop
+8. Graph Construction
+Create a graph showing pipes and equipment with all associated properties of each line number
+Connect field instruments along the path of the graph
+If an instrument is installed on equipment, use nozzle connection size as the line number
+If installed online, use the standard line number format
+8. Instrument Validation
+Use only instrument types listed in the provided valid_instrument_type.csv file
+9. Output Format
+Generate a list in the following format (no additional text):
+
+Tag instrument type, Tag loop number, Instrument description, Service description, Line number, Equipment number, Control system, Notes
